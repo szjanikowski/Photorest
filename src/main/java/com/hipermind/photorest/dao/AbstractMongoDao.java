@@ -1,4 +1,4 @@
-package name.ruhkopf.patrick.maps42.dao;
+package com.hipermind.photorest.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -53,6 +53,10 @@ public abstract class AbstractMongoDao<T extends Object>
 		mongoOps.insert(object);
 	}
 
+	public void delete(Query query) {
+		mongoOps.remove(query, clazzOfItem);
+	}
+	
 	public void setMongoOps(MongoOperations mongoOps)
 	{
 		this.mongoOps = mongoOps;

@@ -1,4 +1,4 @@
-package name.ruhkopf.patrick.maps42.kml;
+package com.hipermind.photorest.kml;
 
 import java.util.List;
 
@@ -33,9 +33,9 @@ public class PlacemarkDocument
 		return placemarks;
 	}
 
-	public void setPlacemarks(List<Placemark> placemark)
+	public void setPlacemarks(List<Placemark> placemarks)
 	{
-		this.placemarks = placemark;
+		this.placemarks = placemarks;
 	}
 
 	

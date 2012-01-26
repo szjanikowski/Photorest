@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>name.ruhkopf.patrick</groupId>
-    <artifactId>maps42</artifactId>
+    <groupId>com.hipermind</groupId>
+    <artifactId>photorest</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>maps42 Jersey Webapp</name>
+    <version>0.1-SNAPSHOT</version>
+    <name>Photorest Jersey Webapp</name>
     <build>
-        <finalName>maps42</finalName>
+        <finalName>photorest</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -173,6 +173,11 @@
             <version>${jersey-version}</version>
             <scope>test</scope>
         </dependency>
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-multipart</artifactId>
+			<version>${jersey-version}</version>
+		</dependency>
         <dependency>
             <groupId>org.glassfish.distributions</groupId>
             <artifactId>web-all</artifactId>
@@ -185,6 +190,17 @@
             <version>1.0-alpha-4</version>
             <scope>test</scope>
         </dependency>
+		<!-- dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>1.3</version>
+		</dependency-->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+        
     </dependencies>
     <properties>
         <jersey-version>1.6</jersey-version>

@@ -1,4 +1,4 @@
-package name.ruhkopf.patrick.maps42.config;
+package com.hipermind.photorest.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.document.mongodb.MongoTemplate;
@@ -16,7 +16,7 @@ public class MongoConfig extends AbstractMongoConfiguration {
 
   @Override
   public MongoTemplate mongoTemplate() throws Exception {
-    return new MongoTemplate(mongo() , "database", "mongoexample");
+    return new MongoTemplate(mongo() , "database", "imagedb");
   }
 
 }

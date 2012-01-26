@@ -1,9 +1,10 @@
-package name.ruhkopf.patrick.maps42.dao;
+package com.hipermind.photorest.dao;
 
-import name.ruhkopf.patrick.maps42.kml.Placemark;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+
+import com.hipermind.photorest.kml.Placemark;
 
 /**
  * Data Access Object (DAO) for a {@link Placemark}.

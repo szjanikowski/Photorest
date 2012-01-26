@@ -1,4 +1,4 @@
-package name.ruhkopf.patrick.maps42.kml;
+package com.hipermind.photorest.kml;
 
 import java.util.List;
 

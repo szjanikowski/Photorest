@@ -1,15 +1,16 @@
-package name.ruhkopf.patrick.maps42.service;
+package com.hipermind.photorest.service;
 
 import java.beans.ConstructorProperties;
 import java.util.List;
 
-import name.ruhkopf.patrick.maps42.dao.PlacemarkDao;
-import name.ruhkopf.patrick.maps42.kml.Placemark;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.document.mongodb.query.Query;
 import org.springframework.stereotype.Service;
+
+import com.hipermind.photorest.dao.PlacemarkDao;
+import com.hipermind.photorest.kml.Placemark;
 
 /**
  * Service to manage placemarks.

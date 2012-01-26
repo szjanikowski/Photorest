@@ -1,4 +1,4 @@
-package name.ruhkopf.patrick.maps42.resource;
+package com.hipermind.photorest.resource;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -9,13 +9,14 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import name.ruhkopf.patrick.maps42.kml.Placemark;
-import name.ruhkopf.patrick.maps42.kml.Placemarks;
-import name.ruhkopf.patrick.maps42.service.PlacemarkService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import com.hipermind.photorest.kml.Placemark;
+import com.hipermind.photorest.kml.Placemarks;
+import com.hipermind.photorest.service.PlacemarkService;
 
 /**
  * Web Service Resource to manage maps
