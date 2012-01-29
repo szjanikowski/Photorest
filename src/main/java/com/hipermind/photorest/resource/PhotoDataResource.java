@@ -14,6 +14,12 @@ import org.springframework.stereotype.Component;
 import com.hipermind.photorest.domain.PhotoData;
 import com.hipermind.photorest.service.PhotoDataService;
 
+
+/**
+ * The class representing the graphical data of a photo resource accessible via API.
+ * @author sjanikowski
+ *
+ */
 @Path("/photodata")
 @Component
 @Scope("request")

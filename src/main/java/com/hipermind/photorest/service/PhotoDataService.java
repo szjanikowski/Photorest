@@ -3,22 +3,34 @@ package com.hipermind.photorest.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.StreamingOutput;
 
 import org.apache.log4j.Logger;
+import org.bson.BSONObject;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.document.mongodb.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.hipermind.photorest.domain.PhotoData;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;
  
+
+/**
+ * Service for handling the operations related to photo graphical data.
+ * @author sjanikowski
+ *
+ */
 @Service
 @Scope("singleton")
 public class PhotoDataService {
@@ -28,6 +40,12 @@ public class PhotoDataService {
 	@Autowired
 	private MongoService mongoService;
  
+	/**
+	 * Creates a gridFs file in the Mongo Database. Doesn't use the Spring Data Mongo
+	 * @param uploadedInputStream
+	 * @param fileName
+	 * @return
+	 */
 	// save uploaded file to new location
 	public PhotoData createNewPhotoData(InputStream uploadedInputStream,
 		String fileName) {
@@ -72,6 +90,12 @@ public class PhotoDataService {
 
 		return new PhotoData(id,name,streamingOutput);
 	}
+	
+	/**
+	 * Retrieves the PhotoData by file name object containing the  graphical Data
+	 * @param name
+	 * @return
+	 */
 	public PhotoData getPhotoDataByName(String name) {
 		
 		// create a "photo" namespace
@@ -84,6 +108,11 @@ public class PhotoDataService {
 		
 	}
 	
+	/**
+	 * Retrieves the PhotoData by id object containing the  graphical Data
+	 * @param id
+	 * @return
+	 */
 	public PhotoData getPhotoDataById(String id) {
 		
 		// create a "photo" namespace
@@ -96,6 +125,11 @@ public class PhotoDataService {
 		
 	}
 	
+	/**
+	 * Checks in the database for the PhotoData files with the given name  
+	 * @param name
+	 * @return
+	 */
 	public boolean containsName(String name) {
 		// create a "photo" namespace
 		GridFS gfsPhoto = new GridFS(mongoService.getDb(), "photo");
@@ -103,10 +137,24 @@ public class PhotoDataService {
 		return outputPhoto == null ? false : true;
 	}
 
+	/**
+	 * Checks in the database for the PhotoData files with the given id
+	 * @param id
+	 * @return
+	 */
 	public boolean containsId(String id) {
 		GridFS gfsPhoto = new GridFS(mongoService.getDb(), "photo");
-		GridFSDBFile outputPhoto = gfsPhoto.findOne(new ObjectId(id));
+		GridFSDBFile outputPhoto = gfsPhoto.findOne(MongoService.convertObjectId(id));
 		return outputPhoto == null ? false : true;
+	}
+	/**
+	 * Deletes PhotoData with the given id
+	 * @param id
+	 */
+	public void deletePhotoData(String id) {
+		GridFS gfsPhoto = new GridFS(mongoService.getDb(), "photo");
+		gfsPhoto.remove(MongoService.convertObjectId(id));
+
 	}
 	
 	

@@ -6,6 +6,7 @@ package com.hipermind.photorest.domain;
 import javax.ws.rs.core.StreamingOutput;
 
 /**
+ * Represents graphical data of the photo.
  * @author sjanikowski
  *
  */
@@ -32,6 +33,10 @@ public class PhotoData {
 	public void setName(String name) {
 		this.name = name;
 	}
+	/**
+	 * StreamingOutput can be used to stream the data out of the application 
+	 * @return StreamingOutput with photo graphical data
+	 */
 	public StreamingOutput getStreamingOutput() {
 		return streamingOutput;
 	}

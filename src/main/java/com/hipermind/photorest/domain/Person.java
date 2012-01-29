@@ -2,6 +2,11 @@ package com.hipermind.photorest.domain;
 
 import org.springframework.data.annotation.Id;
 
+/**
+ * Represents data about person. Can be stored in MongoDB and at the same time serialized to xml.
+ * @author sjanikowski
+ *
+ */
 public class Person {
 	@Id
 	String id;

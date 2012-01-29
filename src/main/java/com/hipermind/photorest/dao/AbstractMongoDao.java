@@ -10,15 +10,10 @@ import org.springframework.data.document.mongodb.query.Query;
 import org.springframework.stereotype.Repository;
 
 /**
- * <p>
  * Generic abstract Data Access Object (DAO) that uses MongoDB.
- * </p>
- * <p>
- * <p>
- * The goal is to centralize all data access through DAOs. It does not try to completely isolate MongoDB dependencies.
- * </p>
  * 
- * @author Patrick Ruhkopf
+ * The goal is to centralize all data access through DAOs. It does not try to completely isolate MongoDB dependencies.
+ * 
  */
 @Repository
 @Scope("singleton")

@@ -26,6 +26,7 @@ import com.sun.jersey.core.header.FormDataContentDisposition;
 import com.sun.jersey.multipart.FormDataParam;
 
 /**
+ * The class representing a phtoto resource accessible via API.
  * @author sjanikowski
  *
  */

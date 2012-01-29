@@ -10,6 +10,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.document.mongodb.index.Indexed;
 import org.springframework.data.document.mongodb.mapping.DBRef;
 
+/**
+ * Represents metadata of photo. Can be stored in MongoDB and at the same time serialized to xml.
+ * @author sjanikowski
+ *
+ */
 @XmlRootElement(name = "Photo")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Photo {
@@ -33,10 +38,7 @@ public class Photo {
 	@DBRef
 	private List<Tag> tags;
 	
-	public Photo() {	
-	}
-
-
+	public Photo() {}
 
 	public Photo(String name, String description, int width,
 			int height, String photoDataId, Person portraitedPerson,

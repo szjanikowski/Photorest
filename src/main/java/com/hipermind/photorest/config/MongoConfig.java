@@ -6,6 +6,8 @@ import org.springframework.data.document.mongodb.config.AbstractMongoConfigurati
 
 import com.mongodb.Mongo;
 
+
+
 @Configuration
 public class MongoConfig extends AbstractMongoConfiguration {
 

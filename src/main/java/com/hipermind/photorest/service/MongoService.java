@@ -1,5 +1,7 @@
 package com.hipermind.photorest.service;
 
+import java.lang.IllegalStateException;
+
 import org.apache.log4j.Logger;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,11 @@ import org.springframework.stereotype.Service;
 import com.hipermind.photorest.config.MongoConfig;
 import com.mongodb.DB;
 
+/**
+ * Handles the operations related to the Mongo DB
+ * @author sjanikowski
+ *
+ */
 @Service
 @Scope("singleton")
 public class MongoService {
@@ -18,15 +25,25 @@ public class MongoService {
 	@Autowired
 	private MongoConfig mongoConfig;
 	
-	public DB getDb() {
+	/**
+	 * Retrieves the currently used database
+	 * @return
+	 * @throws IllegalStateException
+	 */
+	public DB getDb() throws IllegalStateException {
 		try {
 			return mongoConfig.mongoTemplate().getDb();
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new IllegalStateException("Mongo database acess exception");
 		}
-		return null;
 	}
 	
+	/**
+	 * Creates mongo ObjectId from String - returns null if impossible
+	 * @param id String with id
+	 * @return
+	 */
 	public static ObjectId convertObjectId(String id) {
 		ObjectId objId = null;
 		try {
